@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
 
+# question: why it reports erros when I delete the first url conf and visit 127.0.0.1:8000 ?
 urlpatterns = [
+    url(r'^dashboard/', include('dashboard.urls')),
     url(r'^admin/', admin.site.urls),
 ]
